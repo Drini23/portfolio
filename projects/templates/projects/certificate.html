@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Certificates</h1>
+        <ul class="row">
+            {% for item in certificate %} <!-- Ensure the correct variable name is used -->
+            <div class="col-md-4">
+                <li><strong>Title:</strong> {{ item.title }}</li>
+                <li><strong>Company:</strong> {{ item.compani }}</li>
+                <img src="{{ item.image.url }}" alt="{{ item.title }}" class="img-fluid">
+            </div>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

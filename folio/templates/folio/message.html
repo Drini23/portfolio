@@ -1,0 +1,59 @@
+
+{% if user.is_staff %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Messages</title>
+    <!-- Bootstrap CSS CDN link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .message-container {
+            margin-top: 20px;
+        }
+        .message {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .message hr {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Messages</h1>
+        <div class="message-container">
+            <ul class="list-unstyled">
+                {% for message in messages %}
+                <a href="{% url 'delete' message.id %}">Delete<a/>
+                    <li class="message">
+                        <strong>Id:</strong> {{ message.id }}<br>
+                        <strong>Name:</strong> {{ message.name }}<br>
+                        <strong>Subject:</strong> {{ message.subject }}<br>
+                        <strong>Email:</strong> {{ message.email }}<br>
+                        <strong>Message:</strong> {{ message.message }}<br>
+                        <strong>Timestamp:</strong> {{ message.timestamp }}
+                        <hr>
+                    </li>
+                {% empty %}
+                    <li>No messages yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+        <a href="{% url 'home'%}" class="btn btn-primary">Home</a>
+    </div>
+
+    <!-- Bootstrap JS CDN link (for Bootstrap JavaScript functionalities) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endif %}
