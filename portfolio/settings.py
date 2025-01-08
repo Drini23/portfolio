@@ -1,3 +1,9 @@
+import os
+from pathlib import Path
+
+
+
+
 """
 Django settings for portfolio project.
 
@@ -10,8 +16,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
-from pathlib import Path
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--k-6^+ryebl32jxa&zx)1+__yxthwke!7tcf+dmi^z+_kicwnx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 ALLOWED_HOSTS = ['calm-mesa-05727-99040076926e.herokuapp.com', '127.0.0.1']
 
 
