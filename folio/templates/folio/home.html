@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Luther</title>
+    <title>Drini</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -135,7 +135,7 @@
                                 I am a passionate Python backend developer with a strong foundation in building scalable, efficient, and reliable server-side applications. With a knack for problem-solving, I specialize in creating seamless APIs, integrating databases, and optimizing performance for robust web solutions. Driven by a love for clean, maintainable code and continuous learning, I thrive on turning complex challenges into innovative solutions. Let’s bring ideas to life, one line of code at a time!
                             </p>
                             
-                            <a href="#0" class="btn btn--medium u-fullwidth" data-animate-el>Download CV</a>
+                            <a href="{% url 'resume'%}" class="btn btn--medium u-fullwidth" data-animate-el>My CV</a>
 
                         </div>
                     </div>
@@ -162,11 +162,28 @@
 
                     <div class="column lg-6 tab-12">
 
-                        
+                        <h2 class="text-pretitle" data-animate-el>
+                            Certifications
+                        </h2>
 
                         <div class="timeline" data-animate-el>
+
+                            {% for certification in certificate %}
+            <div class="timeline__block">
+                <div class="timeline__bullet"></div>
+                <div class="timeline__header">
+                    <h4 class="timeline__title">{{ certification.title }}</h4>
+                    <h5 class="timeline__meta">{{ certification.compani }}</h5>
+                    {% if certificate.image %}
+                    <img src="{{ certification.image.url }}" alt="{{ certification.title }}" class="timeline__image">
+                    {% endif %}
+                </div>
+                <div class="timeline__desc">
+                    <p>{{ certification.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
     
-                          
                         </div> <!-- end timeline -->
 
                     </div> <!-- end column -->
